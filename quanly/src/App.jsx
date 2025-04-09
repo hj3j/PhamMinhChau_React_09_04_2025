@@ -1,0 +1,118 @@
+import './App.css'
+import Table from './components/Table.jsx'
+
+function App() {
+
+  return (
+
+
+    <>
+      
+      <div className="container">
+        <div className="header">
+              <div className="child"><h2>Dashboard</h2></div>
+
+              <div className="child">
+                  <input type="text"  placeholder='Search...' style={{height:"30%", width:"50%"}}/>
+                  <img src="/Bell 1.png" alt="" height="50%"/>
+                  <img src="/Question 1.png" alt="" height="50%" />
+                  <img src="/Avatar 313.png" alt=""  height="80%"/>
+              </div>
+        </div>
+
+        {/* MENU */}
+        <div className="menu">
+          <div className="child">
+            <img src="/Image 1858.png" alt="" height="20%"/>
+          </div>
+          <div className="child">
+            <img src="/Squares four 1.png" alt="" /> Dashboard
+          </div>
+          <div className="child">
+            <img src="Groups.png" alt="" /> Teams
+          </div>
+          <div className="child">
+            <img src="/Pie chart.png" alt="" /> Anatylics
+          </div>
+          <div className="child">
+            <img src="/Chat.png" alt="" /> Messengers
+          </div>
+          <div className="child">
+            <img src="/Code.png" alt="" /> Intergrations
+          </div>
+
+          <div className="child">
+               <img src="/Group.png" alt="" />
+              <button>Try now</button>
+          </div>
+        
+        </div>
+
+        {/* CONTENT */}
+        <div className="content">  
+          <div className="child">
+              <img src="Squares four 1.png" alt="" /> 
+              <h4>Overview</h4>
+          </div>
+          <div className="child">
+            
+            <div className="grandchild">
+              <div className="child-of-grandchild">
+                <h5>Turnover</h5>
+                <h4>$92.405</h4>
+                <p>5.39% period of change</p>
+              </div>
+              <div className="child-of-grandchild">
+                <img src="/Button 1509.png" alt="" />
+              </div>
+            </div>
+
+            <div className="grandchild">
+              <div className="child-of-grandchild">
+                  <h5>Turnover</h5>
+                  <h4>$92.405</h4>
+                  <p>5.39% period of change</p>
+              </div>
+              <div className="child-of-grandchild">
+                <img src="/Button 1529.png" alt="" />
+              </div>
+            </div>
+
+            <div className="grandchild">
+               <div className="child-of-grandchild">
+                  <h5>Turnover</h5>
+                  <h4>$92.405</h4>
+                  <p>5.39% period of change</p>
+              </div>
+              <div className="child-of-grandchild">
+                <img src="/Button 1530.png" alt="" />
+              </div>
+            </div>
+          </div>
+
+          <div className="child">
+            <div className="grandchild">
+              <img src="/File text 1.png" alt="" />
+              <h4>Detailed report</h4>
+            </div>
+            <div className="grandchild">
+              <button>+ Add</button>
+            </div>
+          </div>
+
+          <div className="child">
+              <Table/>
+          </div>
+        </div>
+        
+        {/* FOOTER */}
+        <div className="footer">
+          
+        </div>
+      </div>
+      
+    </>
+  )
+}
+
+export default App
