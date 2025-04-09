@@ -124,40 +124,64 @@
   padding: 2%;
 }
 
-.content .child:nth-of-type(1){
+.content .child:nth-of-type(1) {
   display: flex;
 }
 
-.content .child:nth-of-type(2){
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  /* grid-template-rows: auto 1fr auto; */
-  gap: 50px;
-  margin: 20px 0px;
+
+.content .child:nth-of-type(2) ul{
+  display: flex;
+  gap: 40px;
+  width: 100%;
 }
 
-.content .child:nth-of-type(2) .grandchild h5, h4, p, img{
+.content .child:nth-of-type(2) li{
+  list-style: none  ;
+}
+
+.content .child:nth-of-type(2) .grandchild h5, h4, img{
   margin: 10px;
 }
 
+.content .child:nth-of-type(2) .grandchild  h4{
+  font-size: 24px;
+}
+
+
+.content .child:nth-of-type(2) .grandchild span:nth-of-type(1){
+  margin-left: 10px;
+  margin-top: 15px;
+  font-size: 12px;
+  color: #348252;
+  font-weight: bold;
+}
+
+.content .child:nth-of-type(2) .grandchild span:nth-of-type(2){
+  font-size: 12px;
+  color: #908B93;
+}
+/* format cho từng grand child chia ra thafh 4-1(chứa icon) */
 .content .child:nth-of-type(2) .grandchild{
   display: grid;
   grid-template-columns: 4fr 1fr;
-
+  background-color: rgb(0, 255, 8);
+  padding: 10px;
 }
 
-.content .child:nth-of-type(2) .grandchild:nth-of-type(1){
+.content .child:nth-of-type(2) .grandchild-0{
   background-color: #FFF0F5;
   
 }
 
-.content .child:nth-of-type(2) .grandchild:nth-of-type(2){
+.content .child:nth-of-type(2) .grandchild-1{
   background-color: #EFF6FF;
 }
 
-.content .child:nth-of-type(2) .grandchild:nth-of-type(3){
+.content .child:nth-of-type(2) .grandchild-2{
   background-color: #F0F7FD;
 }
+
+
 
 .content .child:nth-of-type(3){
   display: flex;

@@ -1,11 +1,20 @@
+import { useEffect, useState } from 'react'
 import './App.css'
 import Table from './components/Table.jsx'
 
 function App() {
 
+  const [overviews, setOverviews] = useState([])
+
+  useEffect  (()=>{
+    fetch('http://localhost:3000/overview')
+      .then(data=> data.json())
+      .then(turnover=>{
+        setOverviews(turnover)
+      })
+  }, [])
+
   return (
-
-
     <>
       
       <div className="container">
@@ -50,45 +59,33 @@ function App() {
 
         {/* CONTENT */}
         <div className="content">  
-          <div className="child">
-              <img src="Squares four 1.png" alt="" /> 
+        <div className="child">
+              <img src="/Squares four 1.png" alt="" />
               <h4>Overview</h4>
-          </div>
-          <div className="child">
-            
-            <div className="grandchild">
-              <div className="child-of-grandchild">
-                <h5>Turnover</h5>
-                <h4>$92.405</h4>
-                <p>5.39% period of change</p>
-              </div>
-              <div className="child-of-grandchild">
-                <img src="/Button 1509.png" alt="" />
-              </div>
-            </div>
-
-            <div className="grandchild">
-              <div className="child-of-grandchild">
-                  <h5>Turnover</h5>
-                  <h4>$92.405</h4>
-                  <p>5.39% period of change</p>
-              </div>
-              <div className="child-of-grandchild">
-                <img src="/Button 1529.png" alt="" />
-              </div>
-            </div>
-
-            <div className="grandchild">
-               <div className="child-of-grandchild">
-                  <h5>Turnover</h5>
-                  <h4>$92.405</h4>
-                  <p>5.39% period of change</p>
-              </div>
-              <div className="child-of-grandchild">
-                <img src="/Button 1530.png" alt="" />
-              </div>
-            </div>
-          </div>
+        </div>
+          
+        <div className="child" >
+              <ul>
+                {
+                      overviews.map((overview , index)=> (
+                        <li key={index}>
+                            
+                              <div className= {`grandchild-${index} grandchild`} >
+                                <div className="child-of-grandchild">
+                                  <h5>{overview.title}</h5>
+                                  <h4>{overview.unit}{overview.value}</h4>
+                                  <span>{overview.change}</span><span>% period of change</span>
+                                </div>
+                                <div className="child-of-grandchild">
+                                  <img src={overview.img} alt="" />
+                                </div>
+                              </div>
+                          
+                        </li>
+                      ))
+                }
+              </ul>
+          </div> 
 
           <div className="child">
             <div className="grandchild">
