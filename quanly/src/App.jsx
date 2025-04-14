@@ -119,14 +119,6 @@ function App() {
           </div>
 
           <div className="child">
-                {/* <ul>
-                  {
-                    customers.map(customer=>(
-                      <li><img src={customer.avatar} alt="" /></li>
-                    ))
-                  }
-                </ul> */}
-              {/* <Table prop= {customers}/> */}
               <EnhancedTable customersProps = {customers}/>
           </div>
         </div>

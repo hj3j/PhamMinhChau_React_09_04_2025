@@ -22,6 +22,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import '../App.css';
+import UpdateCustomerModal from './UpdateCustomerModal';
 // Lưu ý quan trọng
 // Nhận API dữ liệu của bảng ở App rồi truyền xuống Table
 // Đem khai báo rows vào trong EnhancedTable vì khi nhận customersProps không
@@ -260,6 +261,10 @@ export default function EnhancedTable({customersProps}) {
   const [dense, setDense] = React.useState(false);
   const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+  const [selectedCustomer, setSelectedCustomer] = React.useState(null);
+  const [openModal, setOpenModal] = React.useState(false);
+
+
   const handleRequestSort = (event, property) => {
     const isAsc = orderBy === property && order === 'asc';
     setOrder(isAsc ? 'desc' : 'asc');
@@ -307,6 +312,12 @@ export default function EnhancedTable({customersProps}) {
     setDense(event.target.checked);
   };
 
+  // SỰ KIỆN MỞ MODAL
+  const handleClickOpenModal = (customer) => {
+    setSelectedCustomer(customer)
+    setOpenModal(true);
+  }
+
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -343,7 +354,7 @@ export default function EnhancedTable({customersProps}) {
                 const labelId = `enhanced-table-checkbox-${index}`;
 
                 return (
-                  <TableRow
+                  <TableRow 
                     hover
                     onClick={(event) => handleClick(event, row.id)}
                     role="checkbox"
@@ -380,7 +391,9 @@ export default function EnhancedTable({customersProps}) {
                     <TableCell align="left">
                       <span  className={`status${row.status}`}> {row.status}</span>
                     </TableCell>
-                    <TableCell><img src="../create.png" alt="" /></TableCell>
+                    <TableCell>
+                      <img className = "editIcon" src="../create.png" alt="" onClick={() => handleClickOpenModal(row)}/>
+                    </TableCell>
                   </TableRow>
                 );
               })}
@@ -396,6 +409,7 @@ export default function EnhancedTable({customersProps}) {
             </TableBody>
           </Table>
         </TableContainer>
+        <UpdateCustomerModal open = {openModal} customer = {selectedCustomer} />
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
@@ -412,4 +426,7 @@ export default function EnhancedTable({customersProps}) {
       />
     </Box>
   );
+  
 }
+
+

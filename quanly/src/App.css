@@ -226,4 +226,28 @@
   border-radius: 20px;
 }
 
+.editIcon{
+  background-color: #0b5d26;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
+/* update customer modal *******************************************************/
+
+.update-customer-modal #alert-dialog-title{
+  color: palevioletred;
+  font-weight: bold;
+}
+.update-customer-modal input[type = "text"], input[type = "date"], button, form{
+  width: 100%;
+  padding: 5px 0px;
+  margin: 0px 0px 15px 0px;
+}
+
+.update-customer-modal button{
+  background-color: palevioletred;
+}
+
 
