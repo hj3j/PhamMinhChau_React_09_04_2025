@@ -1,21 +1,42 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import Table from './components/Table.jsx'
+// import Table from './components/Table.jsx'
+import EnhancedTable from './components/Table.jsx'
 
 function App() {
 
   const [overviews, setOverviews] = useState([])
+  const [customers, setCustomers] = useState([])
 
   useEffect  (()=>{
     fetch('http://localhost:3000/overview')
       .then(data=> data.json())
       .then(turnover=>{
+        console.log("in ket qua 1")
         setOverviews(turnover)
       })
   }, [])
 
+    // codeee
+    useEffect(()=>{
+      fetch("http://localhost:3001/customer")
+        .then(data=>data.json())
+        .then(customers=>{
+          console.log("in ket qua")
+          console.log(customers)  
+          setCustomers(customers)
+        })
+        .catch(err=>{
+          console.log("Lỗi!!!!!!")
+        })
+    }, [])
+
+
+
+
   return (
     <>
+      
       
       <div className="container">
         <div className="header">
@@ -98,7 +119,15 @@ function App() {
           </div>
 
           <div className="child">
-              <Table/>
+                {/* <ul>
+                  {
+                    customers.map(customer=>(
+                      <li><img src={customer.avatar} alt="" /></li>
+                    ))
+                  }
+                </ul> */}
+              {/* <Table prop= {customers}/> */}
+              <EnhancedTable customersProps = {customers}/>
           </div>
         </div>
         

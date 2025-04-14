@@ -201,3 +201,29 @@
   direction: row;
 }
 
+
+/* TABLE ****************************************************************/
+.statusNew{
+  background-color: #f0f6fa;
+  color: #64acdf !important;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+
+
+.statusIn-progress{
+  background-color: #fcf9ee;
+  color: #b19259 !important;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.statusCompleted{
+  background-color: #edfcf2;
+  color: #528e66 !important;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+

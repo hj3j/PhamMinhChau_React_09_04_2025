@@ -8,7 +8,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "server_overview": "npx json-server --watch ../json-server/overview.json --port 3000"
+    "server_overview": "npx json-server --watch ../json-server/overview.json --port 3000",
+    "server_table": "npx json-server --watch ../json-server/table.json --port 3001"
 
   },
   "dependencies": {

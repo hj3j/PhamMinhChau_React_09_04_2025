@@ -21,12 +21,22 @@ import Switch from '@mui/material/Switch';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
+import '../App.css';
+// Lưu ý quan trọng
+// Nhận API dữ liệu của bảng ở App rồi truyền xuống Table
+// Đem khai báo rows vào trong EnhancedTable vì khi nhận customersProps không
+// thể sử dụng ở bên ngoài EnhancedTable
+
+//Thay đổi dữ liệu dòng ở <TableCell align="left">{row.company}</TableCell>
+//thay đổi định dạng trái phải của dữ liệu ở <TableCell align="left">
 
 
 
-function createData(id, name, company, orderValue, orderDate, status) {
+//tạo data
+function createData(id, avatar, name, company, orderValue, orderDate, status) {
   return {
     id,
+    avatar,
     name,
     company,
     orderValue,
@@ -35,22 +45,24 @@ function createData(id, name, company, orderValue, orderDate, status) {
   };
 }
 
-const rows = [
-  createData(1, 'Cupcake', 305, 3.7, 67, 4.3),
-  createData(2, 'Donut', 452, 25.0, 51, 4.9),
-  createData(3, 'Eclair', 262, 16.0, 24, 6.0),
-  createData(4, 'Frozen yoghurt', 159, 6.0, 24, 4.0),
-  createData(5, 'Gingerbread', 356, 16.0, 49, 3.9),
-  createData(6, 'Honeycomb', 408, 3.2, 87, 6.5),
-  createData(7, 'Ice cream sandwich', 237, 9.0, 37, 4.3),
-  createData(8, 'Jelly Bean', 375, 0.0, 94, 0.0),
-  createData(9, 'KitKat', 518, 26.0, 65, 7.0),
-  createData(10, 'Lollipop', 392, 0.2, 98, 0.0),
-  createData(11, 'Marshmallow', 318, 0, 81, 2.0),
-  createData(12, 'Nougat', 360, 19.0, 9, 37.0),
-  createData(13, 'Oreo', 437, 18.0, 63, 4.0),
-];
+//dữ liệu từng dòng
+// const rows = [
+//   createData(1, 'Cupcake', "A", "BB", "CC", "DD"),
+//   createData(2, 'Donut', 452, 25.0, 51, 4.9),
+//   createData(3, 'Eclair', 262, 16.0, 24, 6.0),
+//   createData(4, 'Frozen yoghurt', 159, 6.0, 24, 4.0),
+//   createData(5, 'Gingerbread', 356, 16.0, 49, 3.9),
+//   createData(6, 'Honeycomb', 408, 3.2, 87, 6.5),
+//   createData(7, 'Ice cream sandwich', 237, 9.0, 37, 4.3),
+//   createData(8, 'Jelly Bean', 375, 0.0, 94, 0.0),
+//   createData(9, 'KitKat', 518, 26.0, 65, 7.0),
+//   createData(10, 'Lollipop', 392, 0.2, 98, 0.0),
+//   createData(11, 'Marshmallow', 318, 0, 81, 2.0),
+//   createData(12, 'Nougat', 360, 19.0, 9, 37.0),
+//   createData(13, 'Oreo', 437, 18.0, 63, 4.0),
+// ];
 
+//hàm này dùng cho nút sắp xếp dữ liệu giảm
 function descendingComparator(a, b, orderBy) {
   if (b[orderBy] < a[orderBy]) {
     return -1;
@@ -61,12 +73,14 @@ function descendingComparator(a, b, orderBy) {
   return 0;
 }
 
+//hàm này nhận sự kiện sắp xếp và xem là tăng hay giảm
 function getComparator(order, orderBy) {
   return order === 'desc'
     ? (a, b) => descendingComparator(a, b, orderBy)
     : (a, b) => -descendingComparator(a, b, orderBy);
 }
 
+//tạo tiêu đề cột
 const headCells = [
   {
     id: 'name',
@@ -97,16 +111,13 @@ const headCells = [
     numeric: false,
     disablePadding: false,
     label: 'STATUS',
-  },
-  {
-    id: '',
-    numeric: false,
-    disablePadding: false,
-    label: '',
   }
 ];
 
+
 function EnhancedTableHead(props) {
+
+  
 
 
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
@@ -155,6 +166,7 @@ function EnhancedTableHead(props) {
   );
 }
 
+//phụ
 EnhancedTableHead.propTypes = {
   numSelected: PropTypes.number.isRequired,
   onRequestSort: PropTypes.func.isRequired,
@@ -164,7 +176,10 @@ EnhancedTableHead.propTypes = {
   rowCount: PropTypes.number.isRequired,
 };
 
+
 function EnhancedTableToolbar(props) {
+
+
   const { numSelected } = props;
   return (
     <Toolbar
@@ -215,21 +230,28 @@ function EnhancedTableToolbar(props) {
   );
 }
 
+//css
 EnhancedTableToolbar.propTypes = {
   numSelected: PropTypes.number.isRequired,
 };
 
-export default function EnhancedTable() {
+export default function EnhancedTable({customersProps}) {
 
-  //codeee
-  const [customers, setCustomers] = React.useState([])
-  React.useEffect(()=>{
-    fetch("http://localhost:3001/customer")
-      .then(data=>data.json())
-      .then(customer=>{
-        console.log(customer)
-      }, [])
-  })
+  console.log("Con nhận được" + customersProps)
+  
+  const rows = (customersProps || []).map((customer) => (
+    createData(
+      customer.id,
+      customer.avatar,
+      customer.customerName,
+      customer.company,
+      customer.orderValue,
+      customer.orderDate,
+      customer.status
+    )
+  ));
+
+  
 
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
@@ -294,7 +316,7 @@ export default function EnhancedTable() {
       [...rows]
         .sort(getComparator(order, orderBy))
         .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage),
-    [order, orderBy, page, rowsPerPage],
+    [rows, order, orderBy, page, rowsPerPage],
   );
 
   return (
@@ -348,10 +370,17 @@ export default function EnhancedTable() {
                     >
                       {row.name}
                     </TableCell>
-                    <TableCell align="right">{row.calories}</TableCell>
-                    <TableCell align="right">{row.fat}</TableCell>
-                    <TableCell align="right">{row.carbs}</TableCell>
-                    <TableCell align="right">{row.protein}</TableCell>
+                    {/* SỬA DỮ LIỆU ********************************************************************/}
+                    <TableCell align="left"  style={{ display: 'flex', alignItems: 'center' }}>
+                        <img src={"../" + row.avatar} alt="" />
+                        {row.company}
+                    </TableCell>
+                    <TableCell align="left">{row.orderValue}</TableCell>
+                    <TableCell align="left">{row.orderDate}</TableCell>
+                    <TableCell align="left">
+                      <span  className={`status${row.status}`}> {row.status}</span>
+                    </TableCell>
+                    <TableCell><img src="../create.png" alt="" /></TableCell>
                   </TableRow>
                 );
               })}

@@ -3,6 +3,7 @@
     [
         {
           "id": 1,
+          "avatar": "Avatar.png",
           "customerName": "Elizabeth Lee",
           "company": "AvatarSystems",
           "orderValue": 359,
@@ -11,6 +12,7 @@
         },
         {
           "id": 2,
+          "avatar": "Avatar (1).png",
           "customerName": "Carlos Garcia",
           "company": "SmoozeShift",
           "orderValue": 747,
@@ -19,6 +21,7 @@
         },
         {
           "id": 3,
+          "avatar": "Avatar (2).png",
           "customerName": "Elizabeth Bailey",
           "company": "Prime Time Telecom",
           "orderValue": 564,
@@ -27,6 +30,7 @@
         },
         {
           "id": 4,
+          "avatar": "Avatar (3).png",
           "customerName": "Ryan Brown",
           "company": "OmniTech Corporation",
           "orderValue": 541,
@@ -35,6 +39,7 @@
         },
         {
           "id": 5,
+          "avatar": "Avatar (4).png",
           "customerName": "Ryan Young",
           "company": "DataStream Inc.",
           "orderValue": 769,
@@ -43,6 +48,7 @@
         },
         {
           "id": 6,
+          "avatar": "Avatar (5).png",
           "customerName": "Hailey Adams",
           "company": "FlowRush",
           "orderValue": 922,
@@ -51,6 +57,7 @@
         },
         {
           "id": 7,
+          "avatar": "Avatar 313.png",
           "customerName": "Thomas Nguyen",
           "company": "TechNova",
           "orderValue": 680,
@@ -59,6 +66,7 @@
         },
         {
           "id": 8,
+          "avatar": "Avatar (5).png",
           "customerName": "Linda Park",
           "company": "BrightWorks",
           "orderValue": 450,
@@ -67,6 +75,7 @@
         },
         {
           "id": 9,
+          "avatar": "Avatar (4).png",
           "customerName": "Jason Tran",
           "company": "NeoConnect",
           "orderValue": 812,
@@ -75,6 +84,7 @@
         },
         {
           "id": 10,
+          "avatar": "Avatar (3).png",
           "customerName": "Sophia Kim",
           "company": "NextGenComms",
           "orderValue": 699,
@@ -83,6 +93,7 @@
         },
         {
           "id": 11,
+          "avatar": "Avatar 313.png",
           "customerName": "Daniel Smith",
           "company": "UrbanSolutions",
           "orderValue": 395,
