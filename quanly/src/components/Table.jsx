@@ -22,6 +22,8 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 
+
+
 function createData(id, name, company, orderValue, orderDate, status) {
   return {
     id,
@@ -105,6 +107,8 @@ const headCells = [
 ];
 
 function EnhancedTableHead(props) {
+
+
   const { onSelectAllClick, order, orderBy, numSelected, rowCount, onRequestSort } =
     props;
   const createSortHandler = (property) => (event) => {
@@ -216,6 +220,17 @@ EnhancedTableToolbar.propTypes = {
 };
 
 export default function EnhancedTable() {
+
+  //codeee
+  const [customers, setCustomers] = React.useState([])
+  React.useEffect(()=>{
+    fetch("http://localhost:3001/customer")
+      .then(data=>data.json())
+      .then(customer=>{
+        console.log(customer)
+      }, [])
+  })
+
   const [order, setOrder] = React.useState('asc');
   const [orderBy, setOrderBy] = React.useState('calories');
   const [selected, setSelected] = React.useState([]);
