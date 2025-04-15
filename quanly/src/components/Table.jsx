@@ -32,6 +32,8 @@ import UpdateCustomerModal from './UpdateCustomerModal';
 //thay đổi định dạng trái phải của dữ liệu ở <TableCell align="left">
 
 
+//Không render lại con khi mà set trạng thái model đóng mở
+
 
 //tạo data
 function createData(id, avatar, name, company, orderValue, orderDate, status) {
@@ -318,6 +320,10 @@ export default function EnhancedTable({customersProps}) {
     setOpenModal(true);
   }
 
+  const handleClickCloseModal = () => {
+    setOpenModal(false);
+  }
+
   // Avoid a layout jump when reaching the last page with empty rows.
   const emptyRows =
     page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
@@ -409,7 +415,7 @@ export default function EnhancedTable({customersProps}) {
             </TableBody>
           </Table>
         </TableContainer>
-        <UpdateCustomerModal open = {openModal} customer = {selectedCustomer} />
+        <UpdateCustomerModal open = {openModal} customer = {selectedCustomer} close_method = {handleClickCloseModal} />
         <TablePagination
           rowsPerPageOptions={[5, 10, 25]}
           component="div"
@@ -421,7 +427,7 @@ export default function EnhancedTable({customersProps}) {
         />
       </Paper>
       <FormControlLabel
-        control={<Switch checked={dense} onChange={handleChangeDense} />}
+        control={<Switch checked={dense} onChange={handleChangeDense}  />}
         label="Dense padding"
       />
     </Box>

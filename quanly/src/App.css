@@ -236,6 +236,14 @@
 
 /* update customer modal *******************************************************/
 
+.update-customer-modal .title-modal{
+  display: flex;
+}
+
+.update-customer-modal .title-modal button{
+  border-radius: 0px;
+}
+
 .update-customer-modal #alert-dialog-title{
   color: palevioletred;
   font-weight: bold;

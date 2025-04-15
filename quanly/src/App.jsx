@@ -31,6 +31,19 @@ function App() {
         })
     }, [])
 
+    const LoadAgain = useEffect(()=>{
+      fetch("http://localhost:3001/customer")
+        .then(data=>data.json())
+        .then(customers=>{
+          console.log("in ket qua")
+          console.log(customers)  
+          setCustomers(customers)
+        })
+        .catch(err=>{
+          console.log("Lỗi!!!!!!")
+        })
+    }, [])
+
 
 
 
@@ -116,6 +129,7 @@ function App() {
             <div className="grandchild">
               <button>+ Add</button>
             </div>
+        
           </div>
 
           <div className="child">
