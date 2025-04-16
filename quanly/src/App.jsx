@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react'
 import './App.css'
 // import Table from './components/Table.jsx'
 import EnhancedTable from './components/Table.jsx'
+import AddCustomerModal from './components/AddCustomerModal.jsx'
 
 function App() {
 
   const [overviews, setOverviews] = useState([])
   const [customers, setCustomers] = useState([])
+  const [openModal, setOpenModal] = useState(false);
 
   useEffect  (()=>{
     fetch('http://localhost:3000/overview')
@@ -43,6 +45,16 @@ function App() {
           console.log("Lỗi!!!!!!")
         })
     }, [])
+
+
+    const handleClickOpenModal = () => {
+      console.log("Đã click button Add")
+      setOpenModal(true)
+    }
+
+    const handleClickCloseModal = () => {
+      setOpenModal(false)
+    }
 
 
 
@@ -127,7 +139,9 @@ function App() {
               <h4>Detailed report</h4>
             </div>
             <div className="grandchild">
-              <button>+ Add</button>
+              {/* HÚUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUUU */}
+              <button onClick = {() => handleClickOpenModal()} >+ Add</button>
+              <AddCustomerModal open = {openModal} close_method = {handleClickCloseModal} />
             </div>
         
           </div>

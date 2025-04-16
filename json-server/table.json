@@ -7,7 +7,7 @@
       "company": "Amazon",
       "orderValue": "130000000",
       "orderDate": "10/07/2023",
-      "status": "Completed"
+      "status": "New"
     },
     {
       "id": "2",
@@ -97,6 +97,15 @@
       "company": "UrbanSolutions",
       "orderValue": 395,
       "orderDate": "12/06/2023",
+      "status": "New"
+    },
+    {
+      "id": "5bd0",
+      "customerName": "Phạm Minh Châu",
+      "avatar": "Avatar (4).png",
+      "company": "Amazon",
+      "orderValue": "20000",
+      "orderDate": "2025-04-16",
       "status": "New"
     }
   ]
