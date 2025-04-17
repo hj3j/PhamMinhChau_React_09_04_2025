@@ -88,19 +88,19 @@
 }
 
 /* MENU */
-.menu{
-}
+
 
 .menu > .child{
   padding-top: 10px;
 }
 
 .menu .child{
+  color: #7d7e81;
   display: flex;
   align-items: center;
 }
 
-.menu .child.child:last-of-type{
+.menu > :nth-child(7){
   background-color: #EFF6FF;
   display: flex;
   flex-direction: column;
@@ -258,4 +258,10 @@
   background-color: palevioletred;
 }
 
+
+/* NAVLINK */
+.active{
+  font-weight: bold;
+  background-color: rgb(50, 27, 227);
+}
 
