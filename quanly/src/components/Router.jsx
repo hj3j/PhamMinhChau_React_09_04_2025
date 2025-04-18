@@ -10,10 +10,10 @@ const Rout = () => {
         <Route index element = {<Content/>}/>
         <Route path='/' element={<Content/>}/>
         <Route path = '/logo' element = {<Page/>} />
-        <Route path='/teams' element={<Page/>}/>
-        <Route path='/anatylics' element= {<Page/>}/>
-        <Route path='/messengers' element= {<Page/>}/>
-        <Route path='/intergrations' element= {<Page/>}/>
+        <Route path='/teams' element={<Page titleProp = "TEAMS"/>}/>
+        <Route path='/anatylics' element= {<Page titleProp = "ANATYLICS"/>}/>
+        <Route path='/messengers' element= {<Page titleProp = "MESSENGERS"/>}/>
+        <Route path='/intergrations' element= {<Page titleProp = "INTERGRATIONS"/>}/>
 
         
       </Routes>

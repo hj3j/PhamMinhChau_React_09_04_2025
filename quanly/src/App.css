@@ -265,3 +265,19 @@
   background-color: rgb(50, 27, 227);
 }
 
+
+
+/* PAGE *******************************************************************/
+.page{
+  display: grid;
+  grid-template-columns: 1FR 1FR ;
+}
+
+.page h1{
+  margin-left: 30%;
+}
+
+.page > *{
+  margin-top: 30%;
+}
+

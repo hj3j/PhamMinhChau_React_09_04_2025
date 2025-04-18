@@ -1,10 +1,13 @@
 import React from 'react'
 
-function Page() {
+function Page({titleProp}) {
+
+  
   return (
-    <div>
-        <img src="/404.img" alt="" />
-        <h1>Pageggggggggggggg</h1>
+    <div className = "page">
+      <h1 >{titleProp}</h1>
+      <img src="/404.png" alt=""  width={"50%"}/>
+        
     </div>
   )
 }

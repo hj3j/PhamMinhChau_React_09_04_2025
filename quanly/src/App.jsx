@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {  useEffect, useState } from 'react'
 import {BrowserRouter} from 'react-router-dom'
 import './App.css'
 
@@ -8,26 +8,32 @@ import Menu from './components/Menu.jsx'
 import Content from './pages/Content.jsx'
 import Footer from './components/Footer.jsx'
 import Rout from './components/Router.jsx'
+import { AlertTitle } from '@mui/material'
+import { HeaderContext } from './components/HeaderContext.jsx'
+
 
 
 function App() {
 
+  
+  const [titleHeader , setTileHeader] = useState("Dashboard")
 
   return (
     <>
-    <BrowserRouter>
-        <div className="container">
-          <Header/>
+      <HeaderContext.Provider value = {{titleHeader, setTileHeader }}>
+        <BrowserRouter>
+            <div className="container">
+              <Header/>
 
-            <Menu/>
-            <Rout/>
-            {/* <Content/> */}
-          
-            <Footer/>
-
-          
-        </div>
-      </BrowserRouter>
+                <Menu/>
+                <Rout/>
+                {/* <Content/> */}
+              
+                <Footer/>
+            </div>
+          </BrowserRouter>
+      </HeaderContext.Provider>
+    
     </>
   )
 }

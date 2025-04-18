@@ -1,9 +1,12 @@
 import React from 'react'
+import { HeaderContext } from './HeaderContext.jsx'
 
 function Header() {
+
+  const {titleHeader} = React.useContext(HeaderContext)
   return (
     <div className="header">
-        <div className="child"><h2>Dashboard</h2></div>
+        <div className="child"><h2>{titleHeader}</h2></div>
 
         <div className="child">
             <input type="text"  placeholder='Search...' style={{height:"30%", width:"50%"}}/>
